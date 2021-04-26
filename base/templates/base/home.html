@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/2eaadc1c4c.js" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Bilbo Swash Caps' rel='stylesheet'>
+        <style>
+            h5 {
+                display: inline-block;
+                padding: 10px;
+                background: #B9121B;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                }
+body{
+              background: black;
+              font-family: montserrat;
+               position: relative;
+
+ 
+             }
+.start{
+  padding: 18px;
+  background-color: none;
+  left:40px;
+  width: 100%;
+  
+  background: none;
+  
+}.qq:hover {
+  transform: scale(1.05);
+  opacity: 0.5; 
+}
+.qq{
+  padding:16px;
+}
+#myCarousel{
+  border: 2px solid #ED2939;
+
+}
+.cc{
+  border:2px solid #ED2939;
+  padding: 10px;
+  }
+.aa{
+  position: relative;
+  color: white;
+    font-family: 'Bilbo Swash Caps';
+   
+  top:10px;
+  text-align: center;
+    font-size: 50px;
+    font-weight: 200px;
+    
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  max-width: 45%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+.explore-section-heading {
+            color: #183b56;
+            font-family: "Roboto";
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .explore-card-img {
+            height: 335px;
+            width: 100%;
+           
+        }
+
+        .explore-card-title {
+            font-family: "Roboto";
+            font-size: 20px;
+            color: #323f4b;
+            font-weight: 500;
+        }
+
+        .explore-card-link {
+            color: #d0b200;
+            font-size: 15px;
+            font-family: "Roboto";
+            font-weight: 400;
+        }
+
+        .explore-card {
+            
+        }
+        .explore-card-img:hover {
+  transform: scale(1.05);
+  opacity: 0.5; 
+}
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+            .p {
+                text-align: center;
+                padding-top: 40px;
+                font-size: 13px;
+            }
+
+            .image
+            {
+                background-size: cover;
+                height: 100vh;
+            }
+            .search_bar {
+                width:50%;
+                position: absolute;
+                z-index:1;
+                top: 50%;
+                left: 25%;
+               
+                /* margin-left: -0.5%; */
+            }
+            .search_bar input{
+                height: 50px;
+            }
+            .search_bar select, .search_bar input, .search_bar button { float:left; margin-top:2px; }
+
+            .footer-section-mail-id {
+              color: #959ead;
+              font-family: "Roboto";
+              font-weight: bold;
+              font-size: 16px;
+              margin-top: 20px;
+          }
+
+          .footer-section-address {
+              color: #959ead;
+              font-family: "Roboto";
+              font-size: 14px;
+          }
+          .follow-us-section {
+              background-color: white;
+          }
+
+          .follow-us-section-heading {
+              text-align: center;
+              color: #183b56;
+              font-family: "Roboto";
+              font-size: 28px;
+              font-weight: 700;
+          }
+
+          .follow-us-icon-container {
+              background-color: #faf7e8;
+              width: 80px;
+              height: 80px;
+              border-radius: 40px;
+              margin: 15px;
+              padding-top: 22px;
+              padding-bottom: 14px;
+              padding-right: 16px;
+              padding-left: 22px;
+          }
+          .footer-section {
+              background-color: #0d2436;
+          }
+          .icon {
+              color: #d0b200;
+              font-size: 35px;
+          }
+
+            @media (max-width: 1000px) {
+            .search_bar {
+                position:absolute;
+                z-index:1;
+                top:50%;
+                left:25%;                
+                width:55%;
+            }
+            .image{
+                background-size: cover;
+                height: 50vh;
+            }
+          
+            }
+            .bulg{
+              box-shadow: -4px -2px 8px 0 rgb(80, 88, 94);
+          }
+          .dropdown-menu {
+            right: 0;
+            left: auto;
+            padding-left: 1px;
+            padding-right: 1px;
+          }
+        </style>
+
+        <script text="javascript"> 
+            $('.carousel').carousel({
+            interval: 1000,
+            pause: "false"
+            });
+        </script>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bulg" style="background: rgba(0,0,0,0.9) !important;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="font-size: 25px;">  NavBar      </a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link mr-3 ml-4" href="{% url 'base:cake' %}" style="font-size: 25px;">Cakes <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link mr-3" href="{% url 'base:chocolate' %}" style="font-size: 25px;">Chocolates <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link mr-3" href="{% url 'base:plant' %}" style="font-size: 25px;">Plants <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link mr-3" href="{% url 'base:bouquet' %}" style="font-size: 25px;">Bouquets <span class="sr-only">(current)</span></a>
+        </li>
+        </ul>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link mr-4" href="{% url 'base:home' %}" style="font-size: 25px;">Home <span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link mr-4" href="{% url 'base:cart_items' %}" style="font-size: 25px;">Bag</a>
+              </li>
+      
+              <li class="nav-item">
+                <a class="nav-link mr-4" href="{% url 'base:wishlist_items' %}" style="font-size: 25px;">Wishlist</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 25px;">
+                  Profile
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                  {% if not request.user.is_authenticated %}
+                  <a class="dropdown-item" href="{% url 'auth:login' %}">Login</a>
+                  <a class="dropdown-item" href="{% url 'auth:cusreg' %}">Sign Up</a>
+                  {% else %}
+                  <a class="dropdown-item" href="{% url 'auth:pwdchange' %}">Change Password</a>
+                  <a class="dropdown-item" href="{% url 'auth:profile' %}">Profile</a>
+                  <a class="dropdown-item" href="{% url 'auth:address' %}">Address</a>
+                  <a class="dropdown-item" href="{% url 'base:review_orders' %}">Orders</a>
+
+                  <a class="dropdown-item" href="{% url 'auth:logout' %}">Logout</a>
+                  {% endif %}
+                  
+                  <a class="dropdown-item" href="{% url 'chatbot:home' %}">Chat Bot</a>
+                </div>
+              </li>            
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol> 
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100 image" src="static/images/ca_1.jpg" data-color="lightblue" alt="First Image">
+            
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 image" src="static/images/pl_5.jpg"alt="Second Image">
+            
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 image" src="static/images/f7.jpg" data-color="violet" alt="Third Image">
+           
+          </div>
+
+
+          <!-- <div class="container-fluid search_bar"> 
+            <div class="row">
+          <div class="input-group">
+            <input type="text" class="form-control" style="border-radius: 20px;" placeholder="Search for...">
+            <span class="input-group-btn">
+                <button class="btn btn-secondary" style="border-radius: 10px;" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="37" fill="currentColor" class="bi bi-search"  viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                  </svg></button>
+            </span>
+            </div>
+            </div>
+        </div>
+                -->
+
+        </div >
+        <!-- Controls -->
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+      </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+      </a>
+      </div>
+
+
+
+<div class="start"  >
+  <p class="aa">Whats new</p>
+<div class="cc">
+  <a href="{% url 'base:bouquet' %}"><img class="qq" src="static/images/pl_3.jpg" alt="Chicago" style="width:23%;height: 375px;opacity:0.8;margin-left: 40px;"></a>
+  <a href="{% url 'base:chocolate' %}"><img class="qq" src="static/images/coco_4.jpg" alt="Chicago" style="width:23%;opacity:0.7;height: 375px;"></a>
+  <a href="{% url 'base:plant' %}"><img class="qq" src="static/images/f2.jpg" alt="Chicago" style="width:23%;height: 375px;"></a>
+  <a href="{% url 'base:cake' %}"><img class="qq" src="static/images/cc3.jpg" alt="Chicago" style="width:23%;height: 375px;"></a>
+</div>
+
+<br><br>
+<div class="col-12">
+                    <h1 class="aa"> Explore</h1>
+                </div>
+                <br>
+<div class="cc">
+<div class=" pt-5 pt-5" id="explore">
+        <div class="container-fluid">
+            <div class="row">
+                
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="shadow explore-card p-3">
+                      <a href="{% url 'base:cake' %}"><img src="static/images/2-3.jpg" class="explore-card-img" /></a>
+                        <h1 class="explore-card-title mt-3" style="font-size: 25px;color: white;"> Cakes</h1>
+                        <a href="{% url 'base:cake' %}" class="explore-card-link">View all
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="shadow explore-card p-3">
+                      <a href="{% url 'base:chocolate' %}" ><img src="static/images/coco_3.jpg" class="explore-card-img" /></a>
+                        <h1 class="explore-card-title mt-3" style="font-size: 25px;color: white;"> Chocolates</h1>
+                        <a href="{% url 'base:chocolate' %}" class="explore-card-link">View all
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="shadow explore-card p-3">
+                      <a href="{% url 'base:bouquet' %}"><img src="static/images/bo_1.jpg" class="explore-card-img" /></a>
+                        <h1 class="explore-card-title mt-3" style="font-size: 25px;color: white;"> Bouquets</h1>
+                        <a href="{% url 'base:bouquet' %}" class="explore-card-link">View all
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="shadow explore-card p-3">
+                      <a href="{% url 'base:plant' %}"><img src="static/images/pl_1.jpg" class="explore-card-img" /></a>
+                        <h1 class="explore-card-title mt-3" style="font-size: 25px;color: white;"> Plants</h1>
+                        <a href="{% url 'base:plant' %}" class="explore-card-link">View all
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br><br><br>
+
+<div class="cc">
+  <div class="row">
+  <div class="column">
+    
+    <a href="{% url 'base:birth' %}"><img class="qq"src="static/images/c6.jpg" style="padding:15px;height: 325px"></a>
+    
+    
+  </div>
+  <div class="column">
+    <br>
+    <p style="color: white;font-family: 'Bilbo Swash Caps';font-weight: 40px;font-size: 65px;margin-left: 200px;">Birthday</p>
+    <br>
+    <p style="color: white;font-weight: 10px;font-family: 'Roboto';font-size: 22px;margin-left: 100px;">“Your birthday is first day of another 365-day journey.Be the shinning thread in the beautiful tapestry of the world to make this year best ever.Enjoy the ride.”</p>
+    
+  </div>
+  
+</div>
+  <br><br>  
+
+  <div class="row">
+  <div class="column">
+
+    <p style="color: white;font-family: 'Bilbo Swash Caps';font-weight: 40px;font-size: 65px;margin-left: 200px;">Anniversary</p>
+    <br>
+     <p style="color: white;font-weight: 10px;font-family: 'Roboto';font-size: 22px;margin-left: 100px;">“What makes life so sweet?</p>
+     <p style="color: white;font-weight: 10px;font-family: 'Roboto';font-size: 22px;margin-left: 100px;">chocolates to eat and some one to love.”</p>
+   
+    
+  </div>
+  <div class="column">
+    
+    <a href="{% url 'base:anniversary' %}"><img class="qq"src="static/images/ann1.jpg" style="padding:15px;height: 325px"></a>
+  </div>
+  
+</div>
+  <br><br> 
+
+<div class="row">
+  <div class="column">
+    
+    <a href="{% url 'base:special' %}"><img class="qq"src="static/images/ss1.jpg" style="padding:15px;height: 325px"></a>
+    
+    
+  </div>
+  <div class="column">
+    <p style="color: white;font-family: 'Bilbo Swash Caps';font-weight: 40px;font-size: 65px;margin-left: 200px;">Something special</p>
+    <br>
+    <p style="color: white;font-weight: 10px;font-family: 'Roboto';font-size: 22px;margin-left: 100px;">“Love is the flower you've got to let grow.Lets make this day more special by planting them.”</p>
+    
+  </div>
+  
+</div>
+
+<br><br>  
+
+  <div class="row">
+  <div class="column">
+
+    <p style="color: white;font-family: 'Bilbo Swash Caps';font-weight: 40px;font-size: 65px;margin-left: 200px;">Gifts</p>
+    <br>
+     
+     <p style="color: white;font-weight: 10px;font-family: 'Roboto';font-size: 22px;margin-left: 100px;">“Some gifts are big, others are small.But the ones that come from heart are the best gifts of all.”</p>
+   
+    
+  </div>
+  <div class="column">
+    
+    <a href="{% url 'base:gifts' %}"><img class="qq"src="static/images/g3.jpg" style="padding:15px;height: 325px"></a>
+  </div>
+  
+</div>
+  <br>
+
+</div>
+<br><br><br>
+
+
+
+
+
+
+<div class="cc">
+  <div class="row">
+  <div class="column">
+    <a href="{% url 'base:bouquet' %}"><img class="qq"src="static/images/f5.jpg" style="margin-left:7%;  padding:20px;height: 600px;width:80%;"></a>
+    
+    
+  </div>
+  <div class="column">
+    <a href="{% url 'base:plant' %}"><img class="qq"src="static/images/pl_6.jpg" style="padding:15px;height: 275px"></a>
+    <br><br>
+    <a href="{% url 'base:cake' %}"><img class="qq"src="static/images/ca_1.jpg" alt="here pl_4" style="padding:15px;height: 275px"></a>
+    
+  </div>
+  
+</div>
+  <br><br>  
+</div>
+
+<br><br><br>
+
+
+
+      
+
+<div >
+      <div class="follow-us-section pt-5 pb-5" id="followUsSection" style="background-color: black;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="follow-us-section-heading" style="font-family: 'montserrat';color: white;">Follow Us</h1>
+                </div>
+                <div class="col-12">
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="follow-us-icon-container">
+                            <i class="fab fa-twitter icon"></i>
+                        </div>
+                        <div class="follow-us-icon-container">
+                            <i class="fab fa-instagram icon"></i>
+                        </div>
+                        <div class="follow-us-icon-container">
+                            <i class="fab fa-facebook icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-section pt-5 pb-5" style="background-color: black;">
+      <div class="container">
+          <div class="row">
+              <div class="col-12 text-center">
+                  <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/food-munch-logo-light.png" class="food-munch-logo" />
+                    <h1 class="footer-section-mail-id" style="color: white;">orderuwant@foodmunch.com</h1>
+                    <p class="footer-section-address" style="color: white;">
+                        123 Ayur Vigyan Nagar, New Delhi, India.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+
+
+</body>
+</html>

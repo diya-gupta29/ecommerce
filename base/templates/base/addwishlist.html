@@ -1,0 +1,102 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+{% block csslink %}<link rel="stylesheet" href="{% static 'css/productpage.css' %}">{% endblock csslink %}
+{% block mycss %} 
+<style>
+    h5 {
+        display: inline-block;
+        padding: 10px;
+        background: #B9121B;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        }
+    .p {
+        text-align: center;
+        padding-top: 40px;
+        font-size: 13px;
+    }
+    hr.new1 {
+      border-top: 1px dotted #ED2939;
+    }
+    .navbar{
+        background: rgba(0,0,0,0.9) !important;
+    }
+    .image
+    {
+        background-size: cover;
+        height: 92vh;
+    }
+    .search_bar {
+        width:50%;
+        position: absolute;
+        z-index:1;
+        top: 50%;
+        left: 25%;
+       
+        /* margin-left: -0.5%; */
+    }
+    .search_bar input{
+        height: 50px;
+    }
+    .search_bar select, .search_bar input, .search_bar button { float:left; margin-top:2px; }
+
+    @media (max-width: 1000px) {
+    .search_bar {
+        position:absolute;
+        z-index:1;
+        top:50%;
+        left:25%;
+           
+        width:55%;
+    }
+    .image
+    {
+        background-size: cover;
+        height: 50vh;
+        
+    }
+    
+    }
+</style>
+{% endblock mycss %}
+
+{% block main-content %}
+<div class="container-fluid my-3" >
+    <div class="row">
+        {% for item in items %}
+        <div class="col-md-4 col-sm-12">
+            <div class="box" style="margin-right: 5px; margin-left: 25px; width: 80%; min-height: 410px; background-color: rgb(20,20,0,0.1);">
+                <!--img-box---------->
+                <div class="slide-img" style="height: 325px;">
+                <img alt="1" src="{{item.item.item_image.url}}" >
+                <!--overlayer---------->
+                <div class="overlay1" >
+                <!--buy-btn------> 
+                <a class="remove-wish" pid="{{item.item.id}}"><i class="fas fa-times-circle fa-lg"></i></a> 
+                </div>
+                </div>
+                <!--detail-box--------->
+                <div class="detail-box mt-2" style="height: 30px;">
+                <!--type-------->
+                <div class="type" style = "font-size: 16px;">
+                <p>{{item.item.title}}</p>
+                </div>
+                <!--price-------->
+                <p class="price" style = "font-size: 15px; padding-top: 24px; top: 23px">Rs. {{item.item.discounted_price}}</p>
+                
+                </div>
+                <hr class="new1">
+                <div style = "text-align: center; color:white; padding-bottom: 3%;">
+                <form action="/add-to-cart" class="d-inline">
+                    <input type="hidden" name ="item_id" value = {{item.item.id}} id="item_id"> 
+                    <button class="remove-wish" pid="{{item.item.id}}" type="submit"  style=" color:white;background:rgb(20,20,0,0.1);border:none;margin:0;padding:0; "> Move to Bag</button>
+                 </form>
+                </div>
+            
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+    <script src="{% static 'js/add-to-wish.js' %}"></script>
+{% endblock main-content %}

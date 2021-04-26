@@ -1,0 +1,31 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row my-5">
+  <div class="col-sm-6 offset-sm-3">
+   <form action="" method="post" novalidate class="p-5" style="box-shadow:  -3px -2px 1px 0 #e73140,-4px -2px 20px 0 rgb(80, 88, 94);">
+    {% csrf_token %}
+    <h3>Login</h3>
+    <hr>
+    {% for fm in form %} 
+    <div class="mb-3">
+    {{fm.label_tag}}{{fm}}<small class="text-danger">{{fm.errors|striptags}}</small>
+     </div>
+     {% endfor %}
+     <small><a href="{% url 'auth:password_reset' %}">Forgot Password ?</a></small><br>
+     <input type="submit" class="btn btn-primary mt-4" value="Login">
+     <br>
+     <div class="text-center text-primary fw-bold"><small>New User ? <a href="{% url 'auth:cusreg' %}"
+        class="text-danger">Create an Account</a> </small></div>
+     {% if form.non_field_errors %}
+     {% for error in form.non_field_errors %}
+     <p class="alert alert-danger my-3">{{error}}</p>
+     {% endfor %}
+     {% endif %}
+   </form>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}

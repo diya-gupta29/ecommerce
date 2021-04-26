@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Page</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Bilbo Swash Caps' rel='stylesheet'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/cost.css' %}">
+    <style>
+      .dropdown-menu {
+        right: 0;
+        left: auto;
+        padding-left: 1px;
+        padding-right: 1px;
+      }
+    </style>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bulg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="font-size: 25px;">  NavBar      </a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link mr-3 ml-4" href="{% url 'base:cake' %}" style="font-size: 25px;">Cakes <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link mr-3" href="{% url 'base:chocolate' %}" style="font-size: 25px;">Chocolates <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link mr-3" href="{% url 'base:plant' %}" style="font-size: 25px;">Plants <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link mr-3" href="{% url 'base:bouquet' %}" style="font-size: 25px;">Bouquets <span class="sr-only">(current)</span></a>
+        </li>
+        </ul>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link mr-4" href="{% url 'base:home' %}" style="font-size: 25px;">Home <span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link mr-4" href="{% url 'base:cart_items' %}" style="font-size: 25px;">Bag</a>
+              </li>
+      
+              <li class="nav-item">
+                <a class="nav-link mr-4" href="{% url 'base:wishlist_items' %}" style="font-size: 25px;">Wishlist</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 25px;">
+                  Profile
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                  {% if not request.user.is_authenticated %}
+                  <a class="dropdown-item" href="{% url 'auth:login' %}">Login</a>
+                  <a class="dropdown-item" href="{% url 'auth:cusreg' %}">Sign Up</a>
+                  {% else %}
+                  <a class="dropdown-item" href="{% url 'auth:pwdchange' %}">Change Password</a>
+                  <a class="dropdown-item" href="{% url 'auth:profile' %}">Profile</a>
+                  <a class="dropdown-item" href="{% url 'auth:address' %}">Address</a>
+                  <a class="dropdown-item" href="{% url 'base:review_orders' %}">Orders</a>
+
+                  <a class="dropdown-item" href="{% url 'auth:logout' %}">Logout</a>
+                  {% endif %}
+                  
+                  <a class="dropdown-item" href="{% url 'chatbot:home' %}">Chat Bot</a>
+                </div>
+              </li>            
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="div1">     
+        <img class="qq"src="{{item.item_image.url}}" style="padding:15px;height: 100%;width:100%;" alt="Image">
+    </div>
+
+    <div class="div2">
+        <div class="priceInfo">
+          <br>
+            <h2 class="productTitle" style="color: white;font-family: montserrat;font-size:50px;font-weight: 100px;">{{item.title}}</h2>
+            <h3 class="productName" style="color:white; margin-top: 0px;font-weight:50px;font-size: 20px;">{{item.description}}</h3><hr>
+            <p class="priceContainer">
+                <span class="productPrice" tabindex="0" @click="popupFun()" style = "font-size: 24px; margin-right: 8px;">
+                    <!--Javascript event will be added to mould the values-->
+                    <strong>Rs. {{item.discounted_price}}</strong>
+                </span>
+                
+                <span class="productMargin" style = "font-size: 20px;">
+                  <s>Rs. {{item.price}}</s>
+                </span>
+            </p>
+        </div>      
+
+        <hr>
+       {% if item_already_in_cart %}
+       <div class="action-container d-inline">
+        <a href="{% url 'base:cart_items' %}"><button class="bag" style="background-color: brown; color:white; padding: 10px; width:25%;font-weight:50px;font-size: 20px;">Show My Bag</button></a>
+       </div>
+      {% else %}
+        <div class="action-container d-inline">
+          <form action="/add-to-cart" class="d-inline">
+            <input type="hidden" name ="item_id" value = {{item.id}} id="item_id"> 
+            <button type="submit" class="bag" style="background-color: brown; color:white; padding: 10px; width:25%;font-weight:50px;font-size: 20px;"> Add to bag</button>
+         </form>
+          <!-- <a href="{% url 'base:add-to-cart' %}"><button class="bag" style="background-color: brown; color:white; padding: 10px; width:25%;font-weight:50px;font-size: 20px;"> Add to cart</button></a> -->
+         
+        </div>
+        {% endif %}
+        {% if item_already_in_wishlist %}
+       <div class="action-container d-inline">
+        <a href="{% url 'base:wishlist_items' %}"><button class="bag" style=" color:black; padding: 10px; width:25%;font-weight:50px;font-size: 20px; margin-left:2%;">Wishlisted</button></a>
+       </div>
+       {% else %}
+        <form action="/add-to-wishlist" class="d-inline">
+          <input type="hidden" name ="item_id" value = {{item.id}} id="item_id"> 
+          <button type="submit" class="bag" style=" color:black; padding: 10px; width:25%;font-weight:50px;font-size: 20px; margin-left: 2%;"> Add to wishlist</button>
+       </form>
+       {% endif %}
+        <!-- <a href="#"><button class="wishlist" style="padding: 10px; width:25%; margin-left: 5px;font-weight:50px;font-size: 20px;"> Buy Now</button></a> -->
+
+        <hr>
+
+        <div class="deliveryContainer">
+          <div class="delivery-heading">
+            <h5>Delivery details</h5>
+          </div>
+          <ul class="services-availability-list">
+            <li class="services-availablityItem">
+              <h4 class="service-availabilityTitle">Get it in hours.</h4>
+            </li>
+            <li class="services-availablityItem">
+              <h4 class="service-availabilityTitle">Pay on delivery available.</h4>
+            </li>
+            <li class="services-availablityItem">
+              <h4 class="service-availabilityTitle">Easy 30 days return and exchange available.</h4>
+            </li>
+
+          </ul>
+        </div>
+    </div>
+</body>
+</html>

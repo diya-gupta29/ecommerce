@@ -1,0 +1,66 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0"> -->
+<!-- basic_chat.aiml -->
+<aiml version="1.0.1" encoding="UTF-8">
+
+    <category>
+        <pattern>HELLO *</pattern>
+        <template>WElcome to the website, <star/></template>
+    </category>
+
+    <category>
+        <pattern>HELLO</pattern>
+        <template>WElcome to the website, <star/></template>
+    </category>
+    
+    <category>
+        <pattern>Who ARE YOU *</pattern>
+        <template>
+            I'm a bot, and I'm silly!
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT DO YOU DO</pattern>
+        <template>
+            I will show the items you want in my website.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT DO YOU DO *</pattern>
+        <template>
+            I will show the items you want in my website <star/>.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHO ARE YOU</pattern>
+        <template>
+            I am an eccomerce website that provides many things you want..
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHO ARE YOU *</pattern>
+        <template>
+            I am an eccomerce website that provides many things you want..
+        </template>
+    </category>
+    
+    <category>
+        <pattern>ONCE open *</pattern>
+        <template>
+            <random>
+                <li>Go on.</li>
+                <li>Can you be more specific?</li>
+                <li>I did not know that.</li>
+                <li>Are you telling the truth?</li>
+                <li>I don't know what that means.</li>
+                <li>Try to tell me that another way.</li>
+                <li>What is it?</li>
+            </random>
+        </template>
+    </category>
+
+</aiml>

@@ -1,0 +1,63 @@
+<aiml version="1.0.1" encoding="UTF-8">
+<!-- web_question.aiml -->
+<!-- has the quesries related to the categories of the website -->
+
+    <category>
+        <pattern>WHAT * CATEGORIES *</pattern>
+        <template>
+            we have four different categories namely Cakes, Chocolate, Bouquets and Plants.let me know your interest!
+        </template>
+    </category>
+
+    <category>
+        <pattern>CAKES *</pattern>
+        <template>Let me redirect you to the cakes page </template>
+        
+            
+        
+    </category>
+
+    <category>
+        <pattern>CATEGORIES *</pattern>
+        <template>
+            we have four different categories namely Cakes, Chocolate, Bouquets and Plants.
+        </template>
+    </category>
+
+
+    <category>
+        <pattern>ITEMS * PRESENT IN * </pattern>
+        <template>
+            21
+        </template>
+    </category>
+    
+    <category>
+        <pattern>TYPES OF CAKES *</pattern>
+        <template>
+            1
+        </template>
+    </category>
+
+    <category>
+        <pattern>TYPES OF BOUQUETS *</pattern>
+        <template>
+            2
+        </template>
+    </category>
+
+    <category>
+        <pattern>TYPES OF PLANTS *</pattern>
+        <template>
+            3
+        </template>
+    </category>
+
+    <category>
+        <pattern>TYPES OF CHOCOLATES *</pattern>
+        <template>
+            4
+        </template>
+    </category>
+
+</aiml>

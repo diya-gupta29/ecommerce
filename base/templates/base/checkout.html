@@ -1,0 +1,56 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row mt-5">
+  <div class="col-sm-6">
+    <div style="box-shadow:  -3px -2px 1px 0 #e73140,-4px -2px 20px 0 rgb(80, 88, 94);">
+      <div class="card mb-4" style="background-color: rgb(20,20,0,0.1);"></div>
+    <h4 class="ml-4">Order Summary</h4>
+    <hr>
+    {% for item in cart_items %}
+    <hr class="new1" style="border-top: 1px dotted #ED2939; width: 90%;">
+        <div class="card-body">
+          <a href="{% url 'base:itemDetail' item.id %}"><h5>Item: {{item.item.title}}</h5></a>
+          <p>Quantity: {{item.quantity}}</p>
+          <p class="fw-bold">Price: {{item.total_cost}}</p>
+        
+      </div>
+      {% endfor %}
+    </div>
+      <p class="fw-bold mt-3" style="font-size: 23px;">Total Price: {{total_amount}}</p>
+    <!-- <small>Term and Condition: Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ullam saepe! Iure optio repellat dolor velit, minus rem. Facilis cumque neque numquam laboriosam, accusantium adipisci nisi nihil in et quis?</small> -->
+  </div>
+  
+
+  <div class="col-sm-4 offset-sm-1">
+    <h4>Select Shipping Address</h4>
+    <hr>
+    <form action="/payment_done">
+      {% for add in address %}
+      <div class="card" style="background-color: rgb(20,20,0,0.1);">
+        <div class="card-body">
+        <h5>{{add.name}}</h5>
+        <p>{{add.locality}},{{add.city}},{{add.state}} - {{add.zipcode}}</p>
+        </div>
+      </div>
+        <div class="form-check mt-2 mb-5">
+          <input class="form-check-input" type="radio" value="{{add.id}}" name = "custid" id="custadd{{forloop.counter}}" >
+          <label class="form-check-label fw-bold" for="custadd{{forloop.counter}}">
+            Address: {{forloop.counter}}</label>
+        </div>
+        {% endfor %}
+        {% if payment %}
+        <script src="https://checkout.razorpay.com/v1/checkout.js" 
+            data-key="rzp_test_2Pu0VavB8Bm92Z"
+            data-amount="{{total_amount}}" data-currency="INR" data-order_id="{{payment.id}}" data-buttontext="Pay with Razorpay"
+            data-name="Professional Cipher" data-description="Django and Data Science"
+            data-image="https://example.com/your_logo.jpg" data-prefill.name="PC" data-prefill.email="goyaldiya321@gmail.com"
+            data-theme.color="#F37254"></script>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock main-content %}

@@ -1,0 +1,32 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+{% block mycss %} 
+<style>  
+    #wishHeading{
+        font-family: 'Inknut Antiqua';
+        font-weight: bolder;
+        font-size: 28px;
+    }
+</style>
+{% endblock mycss %}
+{% block main-content %}
+
+<div class="card mx-auto mt-5" style="background-color: rgb(20,20,0,0.1); width: 30%; height: 70%;">
+<div class="card-margin " style = "text-align: center;">
+    <br><br>
+    <h2 id="wishHeading" >You haven't placed any order yet.</h2><br>
+    <p class="card-input justify-content-center" style = "text-align: center;">Order section is empty. After placing your order, You can track them from here!</p>
+
+    <div class="wishImg">
+        <img src="{% static 'images/order.png' %}" width="270" height="270" style="align-items: center; padding-left: 10%;">
+    </div>
+    <br><br>
+    
+    <div style = "width: 100%;"><a href="{% url 'base:home' %}"><input type="submit" value="LETS EXPLORE AND GRAB SOME STUFF" width="100%" class="card-input mb-5 justify-content-center " style="text-align: center;" id="submit"  ></a></div>
+      
+</div>
+
+</div>
+
+
+{% endblock main-content %}

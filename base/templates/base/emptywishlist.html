@@ -1,0 +1,48 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+<style>
+    .card-margin{
+        margin-left: 35%;
+        margin-right: 34%;
+        margin-top: 5%;
+        margin-bottom: 2%;
+        background-color: rgb(0,0,0,0.6);
+        color: rgb(39, 49, 47);
+        height: 75vh;
+        padding: 22px;
+        text-align: center;
+        color: whitesmoke;
+    }
+    .card-input{
+        border-radius: 7px;
+        width: 100%;
+        height: 40px;
+        margin-bottom: 100%;
+    }
+    
+    #wishHeading{
+        font-family: 'Inknut Antiqua';
+        font-weight: bolder;
+    }
+</style>
+{% block main-content %}
+
+<div class="card mx-auto mt-5" style="background-color: rgb(20,20,0,0.1); width: 30%; height: 70%;">
+<div class="card-margin " style = "text-align: center;">
+    <br><br>
+    <h2 id="wishHeading" >Your wishlist is empty.</h2><br>
+    <p class="card-input justify-content-center" style = "text-align: center;">Add items to your wishlist. Review them anytime and easily move to the bag.</p>
+
+    <div class="wishImg">
+        <img src="{% static 'images/wishlist.png' %}" width="270" height="270" style="align-items: center; padding-left: 10%;">
+    </div>
+    <br><br>
+    
+    <div style = "width: 100%;"><a href="{% url 'base:home' %}"><input type="submit" value="LETS EXPLORE AND GRAB SOME STUFF" width="100%" class="card-input mb-5 justify-content-center " style="text-align: center;" id="submit"  ></a></div>
+      
+</div>
+
+</div>
+
+
+{% endblock main-content %}
