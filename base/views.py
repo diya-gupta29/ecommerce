@@ -225,7 +225,7 @@ def checkout(request):
     address = Customer.objects.filter(user=user)
     cart_items = Cart.objects.filter(user=user)
     amount = 0.0
-    shipping_amount = 70.0
+    shipping_amount = 50.0
     total_amount = 0.0
     cart_item = [p for p in Cart.objects.all() if p.user==request.user]
     if cart_item:

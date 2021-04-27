@@ -5,12 +5,12 @@
 
     <category>
         <pattern>HELLO *</pattern>
-        <template>WElcome to the website, <star/></template>
+        <template>Welcome to the website, <star/></template>
     </category>
 
     <category>
         <pattern>HELLO</pattern>
-        <template>WElcome to the website, <star/></template>
+        <template>Welcome to the website, <star/></template>
     </category>
     
     <category>

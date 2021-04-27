@@ -55,7 +55,7 @@ $('.remove-cart').click(function(){
             console.log(data)
             console.log("Success")
             document.getElementById("amount").innerText = data.amount
-            document.getElementById("total_amt".innerText = data.total_amount)
+            document.getElementById("total_amt").innerText = data.total_amount
             temp.parentNode.parentNode.parentNode.remove()
         }
     })

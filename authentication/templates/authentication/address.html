@@ -5,21 +5,17 @@
 <div class="container my-5">
  <div class="row">
  <h3>Welcome {{request.user.username}}</h3>
-  <div class="col-sm-2 border-end">
-   <ul class="list-unstyled">
-    <li class="d-grid"><a href="{% url 'auth:profile' %}" class="btn btn-primary">Add Address</a></li>
-    <!-- <li class="d-grid"><a href="{% url 'auth:address' %}" class="btn">Address</a></li> -->
-   </ul>
-  </div>
+  
   <div class="col-sm-9 offset-sm-1">
-   <div class="row">
+   <div class="row" >
     {% for ad in address %}
     <div class="col-sm-6">
-     <div class="card">
-      <div class="card-body" style="color: white;">
+     <div class="card mt-4" style="box-shadow:  -3px -2px 1px 0 #e73140,-4px -2px 20px 0 rgb(80, 88, 94);">
+      <div class="card-body my-4" style="color: white; rgba(20,20,20,0.8)">
        <h3>Address {{forloop.counter}}</h3>
        
        <p>Name: {{ad.name}}</p>
+       <p>Phone no.: {{ad.phone_number}}</p>
        <p>Locality: {{ad.locality}}</p>
        <p>City: {{ad.city}}</p>
        <p>State: {{ad.state}}</p>
