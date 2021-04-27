@@ -1,2 +1,2 @@
 # ecommerce
-AIML-based ecommerce website with payment gateway integration.
+AIML-based chatbot for an E-commerce website with payment gateway integration.
