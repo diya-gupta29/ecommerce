@@ -222,6 +222,7 @@ def remove_wish(request):
 @login_required
 def checkout(request):
     user = request.user
+    count = Customer.objects.filter(user=user).count()
     address = Customer.objects.filter(user=user)
     cart_items = Cart.objects.filter(user=user)
     amount = 0.0
@@ -237,7 +238,7 @@ def checkout(request):
     client = razorpay.Client(auth=('rzp_test_2Pu0VavB8Bm92Z', 'VCcEjHrnti5VhwiYQNlVJXFN'))
     if cart_item:
         payment = client.order.create({'amount': total_amount*100, 'currency': 'INR','payment_capture': '1'})
-        return render(request,'base/checkout.html',{'address':address,'total_amount':total_amount,'cart_items':cart_items,'payment': payment})
+        return render(request,'base/checkout.html',{'count':count,'address':address,'total_amount':total_amount,'cart_items':cart_items,'payment': payment})
     return render(request,'base/emptycart.html')
 
 def payment_done(request):

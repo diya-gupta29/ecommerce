@@ -23,7 +23,21 @@
     <!-- <small>Term and Condition: Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ullam saepe! Iure optio repellat dolor velit, minus rem. Facilis cumque neque numquam laboriosam, accusantium adipisci nisi nihil in et quis?</small> -->
   </div>
   
-
+  {% if count == 0 %} 
+  <div class="col-sm-4 offset-sm-1">
+  <div class="card" style="background-color: rgb(20,20,0,0.1);">
+    
+    <div class="card-body">
+      <h6 style="font-size: 25px;">Add Shipping Address</h6>
+  <br>
+  <form action="{% url 'auth:profile' %}" class="d-inline">
+    <!-- <input type="hidden" name ="item_id" value = {{item.id}} id="item_id">  -->
+    <button type="submit" class="" style="background-color: brown; color: white;"> Click here</button>
+ </form>
+ </div>
+  </div>
+</div>
+  {% else %}
   <div class="col-sm-4 offset-sm-1">
     <h4>Select Shipping Address</h4>
     <hr>
@@ -51,6 +65,7 @@
         {% endif %}
       </form>
     </div>
+    {% endif %}
   </div>
 </div>
 {% endblock main-content %}
