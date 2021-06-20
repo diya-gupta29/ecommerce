@@ -132,10 +132,12 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(settings_dir))
 XMLFILES_FOLDER = os.path.join(PROJECT_ROOT, 'xml_files/')
 LOGIN_REDIRECT_URL = '/'
 MEDIA_ROOT = BASE_DIR / 'media'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_POST = 587
-EMAIL_HOST_USER = 'youremailid'
-EMAIL_HOST_PASSWORD = 'yourpassword'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your_email_id'
+EMAIL_HOST_PASSWORD = 'your_user_password'
+DEFAULT_FROM_EMAIL = 'Wishers <noreply@wishers.help.com>'
+
 
